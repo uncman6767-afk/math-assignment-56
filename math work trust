@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Unblocked Games</title>
+    <style>
+        body { font-family: sans-serif; background-color: #222; color: white; text-align: center; margin: 0; }
+        header { background: #333; padding: 20px; border-bottom: 3px solid #444; }
+        h1 { margin: 0; font-size: 24px; }
+        .game-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; padding: 20px; }
+        .game-card { background: #333; border: 1px solid #444; border-radius: 8px; width: 200px; padding: 10px; transition: transform 0.2s; }
+        .game-card:hover { transform: scale(1.05); border-color: #00ff00; cursor: pointer; }
+        .game-card img { width: 100%; height: 120px; object-fit: cover; border-radius: 5px; }
+        .game-card h3 { font-size: 16px; margin: 10px 0 0 0; }
+        /* The Modal (Pop-up) */
+        #gameModal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.9); }
+        .modal-content { position: relative; width: 80%; height: 80%; margin: 5% auto; background: #000; border: 2px solid #555; }
+        iframe { width: 100%; height: 100%; border: none; }
+        .close-btn { position: absolute; top: -40px; right: 0; color: white; font-size: 30px; cursor: pointer; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>🎮 Stealth Arcade</h1>
+    <p>Educational Resources... mostly.</p>
+</header>
+
+<div class="game-container">
+    <div class="game-card" onclick="playGame('https://slope-game.github.io/newgame/slope.html')">
+        <img src="https://img.poki.com/cdn-cgi/image/quality=78,width=600,height=600,fit=cover,f=auto/8c06c3743e493b82424888127027b407.png" alt="Slope">
+        <h3>Slope</h3>
+    </div>
+
+    <div class="game-card" onclick="playGame('https://1v1.lol/')">
+        <img src="https://play-lh.googleusercontent.com/f97YppZ2CcdB2c75qRzC4h3p5y_zK6oG_vO0tB0u1f4" alt="1v1 LOL">
+        <h3>1v1.lol</h3>
+    </div>
+
+    <div class="game-card" onclick="playGame('https://play2048.co/')">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/18/2048_logo.svg/1200px-2048_logo.svg.png" alt="2048">
+        <h3>2048</h3>
+    </div>
+    
+    <div class="game-card" onclick="playGame('https://orteil.dashnet.org/cookieclicker/')">
+        <img src="https://play-lh.googleusercontent.com/Z4c9gU9hD-y5f5f5f5f5f5f5f5f5f5f5" alt="Cookie Clicker">
+        <h3>Cookie Clicker</h3>
+    </div>
+</div>
+
+<div id="gameModal">
+    <div class="modal-content">
+        <span class="close-btn" onclick="closeGame()">&times; Close Game</span>
+        <iframe id="gameFrame" src=""></iframe>
+    </div>
+</div>
+
+<script>
+    function playGame(url) {
+        document.getElementById('gameFrame').src = url;
+        document.getElementById('gameModal').style.display = 'block';
+    }
+    function closeGame() {
+        document.getElementById('gameModal').style.display = 'none';
+        document.getElementById('gameFrame').src = ''; // Stop game from playing in background
+    }
+</script>
+
+</body>
+</html>
